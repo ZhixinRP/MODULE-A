@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Game of Life</title>
+    <!-- https://www.geeksforgeeks.org/program-for-conways-game-of-life/ -->
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .container {
+            width: 100%;
+            text-align: center;
+        }
+
+        textarea {
+            text-align: center;
+            padding: 10px;
+            font-size: 20px;
+        }
+
+        button {
+            box-sizing: border-box;
+            width: 127px;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Input</h2>
+        <textarea id="input" rows="11" cols="8"></textarea><br>
+
+        <button>Submit</button>
+
+        <h2>Output</h2>
+        <textarea id="output" rows="11" cols="8" disabled></textarea>
+    </div>
+
+    <script>
+        $("button").click(function () {
+            var input = $("#input").val();
+            $("#output").val(input);
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Ribbons</title>
+  <style>
+
+    body {
+      display: flex; /* body becomes the flex container */
+      justify-content: center; /* align flex items center horizontally */
+      align-items: center; /* align flex items center vertically */
+      min-height: 100vh; /* set body height to 100% of viewport */
+      background: #f0f0f0;
+      font-family: arial;
+    }
+
+    .box {
+      position: absolute;
+      max-width: 600px;
+      width: 90%;
+      height: 400px;
+      background: #fff;
+      box-shadow: 0 0 15px rgba(0, 0, 0, .1);
+    }
+
+    .ribbon {
+      width: 150px;
+      height: 150px;
+      overflow: hidden; /* to hide the rect inside the box */
+      position: absolute;
+    }
+
+    .ribbon::before, .ribbon::after { /* pseudo classes */
+      position: absolute;
+      z-index: -1;
+      content: '';
+      display: block;
+      border: 5px solid #2980b9;
+    }
+
+    .ribbon span {
+      position: absolute;
+      display: block;
+      width: 225px;
+      padding: 15px 0;
+      background-color: #3498db;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
+      color: #fff;
+      font-weight: bold;
+      letter-spacing: 1px;
+      text-shadow: 0 1px 1px rgba(0, 0, 0, .2);
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    /* top left*/
+    .ribbon-top-left {
+      top: -10px;
+      left: -10px;
+    }
+
+    .ribbon-top-left::before {
+      top: 0;
+      right: 0;
+    }
+
+    .ribbon-top-left::after {
+      bottom: 0;
+      left: 0;
+    }
+
+    .ribbon-top-left span {
+      right: -25px;
+      top: 30px;
+      transform: rotate(-45deg);
+    }
+
+    /* top right*/
+    .ribbon-top-right {
+      top: -10px;
+      right: -10px;
+    }
+
+    .ribbon-top-right::before {
+      top: 0;
+      left: 0;
+    }
+
+    .ribbon-top-right::after {
+      bottom: 0;
+      right: 0;
+    }
+
+    .ribbon-top-right span {
+      left: -25px;
+      top: 30px;
+      transform: rotate(45deg);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <div class="ribbon ribbon-top-left"><span>ribbon</span></div>
+    <div class="ribbon ribbon-top-right"><span>ribbon</span></div>
+  </div>
+</body>
+
+</html>
