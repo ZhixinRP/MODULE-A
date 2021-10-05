@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        .body {
+            color: white;
+        }
+
+        .row1{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #eeeeee;
+            gap: 20px;
+            padding: 10px;
+            width: 500px;
+            height: 240px;
+        }
+        .row2 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #eeeeee;
+            gap: 20px;
+            padding: 10px;
+            width: 500px;
+            height: 240px;
+            margin-top: 20px;
+        }
+        .column {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 10px;
+            width: auto;
+            height: 500px;
+        }
+        .row1 > div,.row2 > div, .column > div{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+        }
+        .flex-container {
+            display: flex;
+            flex-direction: column;
+            flex-wrap:wrap;
+            background-color: grey;
+            }
+        .box1 {
+            width: 80px;
+            height: 100px;
+            background-color: #3ce272;
+        }
+        .box2 {
+            width: 100px;
+            height: 80px;
+            background-color: #ebcb16;
+        }
+        .box3 {
+            width: 100px;
+            height: 100px;
+            background-color: #d73c3c;
+        }
+        .box4 {
+            width: 150px;
+            height: 100px;
+            background-color: #3c9cd4;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flex-container">
+        <div class="row1">
+            <div class="box1">1</div>
+            <div class="box2">2</div>
+            <div class="box3">3</div>
+            <div class="box4">4</div>
+        </div>
+        <div class="row2">
+            <div class="box1">1</div>
+            <div class="box2">2</div>
+            <div class="box3">3</div>
+            <div class="box4">4</div>
+        </div>
+        <div class="column">
+            <div class="box1">1</div>
+            <div class="box2">2</div>
+            <div class="box3">3</div>
+            <div class="box4">4</div>
+        </div>
+    </div>
+</body>
+
+</html>
