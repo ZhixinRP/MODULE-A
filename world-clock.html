@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Clock</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: Arial, Helvetica, sans-serif;
+            flex-direction: column;
+        }
+
+        #clock {
+            font-weight: bold;
+            font-size: 10vw;
+        }
+
+        select, button {
+            font-size: 3vw;
+            margin-top: 3vw;
+        }
+    </style>
+</head>
+
+<body onload="currentTime()">
+    <div id="clock"></div>
+    <select id="gmt"></select>
+    <button onclick="timezone()">Show Time</button>
+
+    <script>
+
+        function currentTime() {
+            d = new Date(); //create new date object
+            //get time in ms, add local time offset, * 60000 to convert to ms
+            time = d.getTime() + (d.getTimezoneOffset() * 60000);
+            //create new date object based on gmt
+            nd = new Date(time + (3600000 * 8));
+            //return time only
+            document.getElementById("clock").innerHTML = nd.toLocaleTimeString();
+            timeRefresh = setTimeout(currentTime, 1000); //refresh function every sec
+        }
+
+        function timezone() {
+            newGmt = document.getElementById("gmt").value; //get selected value
+            d = new Date();
+            time = d.getTime() + (d.getTimezoneOffset() * 60000);
+            nd = new Date(time + (3600000 * newGmt));
+            document.getElementById("clock").innerHTML = nd.toLocaleTimeString();
+            clearTimeout(timeRefresh);
+            newTimeRefresh = setTimeout(timezone, 1000);
+        }
+
+        function gmt() {
+            for (i = 4; i < 14; i++) {
+                if (i == 8) {
+                    document.getElementById("gmt").innerHTML += "<option selected value=" + i + ">GMT+" + i + ":00</option>";
+                }
+                else {
+                    document.getElementById("gmt").innerHTML += "<option value=" + i + ">GMT+" + i + ":00</option>";
+                }
+            }
+        }
+
+        gmt();
+    </script>
+
+</body>
+
+</html>
